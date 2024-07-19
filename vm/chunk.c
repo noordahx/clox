@@ -29,6 +29,7 @@ void writeChunk(Chunk* chunk, uint8_t byte, int line) {
 	chunk->lines[chunk->count] = line;
 	chunk->count++;
 }
+// hello
 
 int addConstant(Chunk* chunk, Value value) {
 	writeValueArray(&chunk->constants, value);
