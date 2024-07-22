@@ -1,21 +1,24 @@
-CC := gcc
-CFLAGS := -Wall -Wextra
-SRCDIR := src
-VMDIR := vm
-INCLUDES := -I$(SRCDIR) -I$(VMDIR)
-SOURCES := $(wildcard $(SRCDIR)/*.c) $(wildcard $(VMDIR)/*.c)
-OBJECTS := $(SOURCES:.c=.o)
-EXECUTABLE := clox
+CC = clang
+CFLAGS = -Wall -Wextra -std=c11
+INCLUDE_DIRS = -Icompiler -Iscanner -Isrc -Ivm
+
+# List source files
+SOURCES = $(wildcard compiler/*.c) $(wildcard scanner/*.c) $(wildcard src/*.c) $(wildcard vm/*.c)
+HEADERS = $(wildcard compiler/*.h) $(wildcard scanner/*.h) $(wildcard src/*.h) $(wildcard vm/*.h)
+OBJECTS = $(SOURCES:.c=.o)
+
+# Output executables
+EXECUTABLE = clox
 
 .PHONY: all clean
 
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+	$(CC) $(CFLAGS) $(INCLUDE_DIRS) $(OBJECTS) -o $@
 
-$(OBJECTS): %.o : %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) $(INCLUDE_DIRS) -c $< -o $@
 
 clean:
-	rm -f $(EXECUTABLE) $(OBJECTS)
+	rm -f $(OBJECTS) $(EXECUTABLE)
