@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = -Wall -Wextra -std=c11
+CFLAGS = -Wall -Wextra -std=c11 -g
 INCLUDE_DIRS = -Icompiler -Iscanner -Isrc -Ivm
 
 # List source files
