@@ -1,10 +1,10 @@
 CC = clang
-CFLAGS = -Wall -Wextra -std=c11
-INCLUDE_DIRS = -Icompiler -Iscanner -Isrc -Ivm
+CFLAGS = -Wall -Wextra -std=c11 -g
+INCLUDE_DIRS = -Icompiler -Iscanner -Isrc -Ivm -Itable
 
 # List source files
-SOURCES = $(wildcard compiler/*.c) $(wildcard scanner/*.c) $(wildcard src/*.c) $(wildcard vm/*.c)
-HEADERS = $(wildcard compiler/*.h) $(wildcard scanner/*.h) $(wildcard src/*.h) $(wildcard vm/*.h)
+SOURCES = $(wildcard compiler/*.c) $(wildcard scanner/*.c) $(wildcard src/*.c) $(wildcard vm/*.c) $(wildcard table/*.c)
+HEADERS = $(wildcard compiler/*.h) $(wildcard scanner/*.h) $(wildcard src/*.h) $(wildcard vm/*.h) $(wildcard table/*.h)
 OBJECTS = $(SOURCES:.c=.o)
 
 # Output executables
