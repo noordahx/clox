@@ -4,6 +4,6 @@
 #include "../src/object.h"
 #include "../vm/chunk.h"
 
-bool compile(const char* source, Chunk* chunk);
+ObjFunction* compile(const char* source);
 
 #endif

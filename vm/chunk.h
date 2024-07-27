@@ -2,7 +2,6 @@
 #define clox_chunk_h
 
 #include "../src/common.h"
-#include "memory.h"
 #include "../src/value.h"
 
 typedef enum {

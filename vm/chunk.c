@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 #include "chunk.h"
+#include "../src/memory.h"
 
 void initChunk(Chunk* chunk) {
 	chunk->count = 0;
