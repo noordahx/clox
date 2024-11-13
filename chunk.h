@@ -6,6 +6,11 @@
 
 typedef enum {
     OP_CONSTANT, // Push a constant onto the stack
+    OP_ADD,    // Add the top two elements on the stack
+    OP_SUBSTRACT, // Subtract the top two elements on the stack
+    OP_MULTIPLY,  // Multiply the top two elements on the stack
+    OP_DIVIDE,    // Divide the top two elements on the stack
+    OP_NEGATE,   // Negate the top element on the stack
     OP_RETURN,  // Return from the current function
 } OpCode;
 
